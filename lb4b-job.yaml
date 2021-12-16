@@ -11,10 +11,10 @@ spec:
         app: nst-app
     spec:
       nodeSelector:
-        gpu: tesla-v100
+        gpu: tesla-T4
       containers:
       - name: lb4b_nst_job
-        image: gcr.io/lb4b-lb4b-lb4b-lb4b/lb4b_nst_job:1.0.0
+        image: gcr.io/prismatic-rock-334703/lb4b_nst_job:1.0.0
         args:
         - [ "--dfm","%DFM%","--bg","%BG%","--usrImg", "%IMG%" ]
         resources: 
