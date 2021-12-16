@@ -1,27 +1,26 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: lb4b_nst_job
+  name: lb4b-nst-job-%DFM%
 spec:
   parallelism: 1
   template:
     metadata:
-      name: lb4b_nst_job
+      name: lb4b-nst-job-%DFM%
       labels:
-        app: nst-app
+        app: lb4b-nst-app
     spec:
-      nodeSelector:
-        gpu: tesla-T4
       containers:
-      - name: lb4b_nst_job
-        image: gcr.io/prismatic-rock-334703/lb4b_nst_job:1.0.0
-        args:
-        - [ "--dfm","%DFM%","--bg","%BG%","--usrImg", "%IMG%" ]
+      - name: lb4b-nst-job-%DFM%
+        image: gcr.io/prismatic-rock-334703/lb4b_nst_job:0.0.1
         resources: 
-            requests: 
-              nvidia.com/gpu: 1
-            limits: 
-              nvidia.com/gpu: 1 
+          requests: 
+            nvidia.com/gpu: 1
+          limits: 
+            nvidia.com/gpu: 1
+        args: [ --dfm="%DFM%",--bg="%BG%",--usrImg="%IMG%" ]
+      nodeSelector:
+        gpu: tesla-T4 
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
