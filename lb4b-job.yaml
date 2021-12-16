@@ -18,7 +18,7 @@ spec:
             nvidia.com/gpu: 1
           limits: 
             nvidia.com/gpu: 1
-        args: [ --dfm="%DFM%",--bg="%BG%",--usrImg="%IMG%" ]
+        args: [ --dfm=%DFM%,--bg=%BG%,--usrImg=%IMG% ]
       nodeSelector:
         gpu: tesla-T4 
       affinity:
