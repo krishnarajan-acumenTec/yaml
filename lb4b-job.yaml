@@ -1,17 +1,17 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: lb4b-nst-job-%DFM%
+  name: lb4b-nst-job-%NAM%
 spec:
   parallelism: 1
   template:
     metadata:
-      name: lb4b-nst-job-%DFM%
+      name: lb4b-nst-job-%NAM%
       labels:
         app: lb4b-nst-app
     spec:
       containers:
-      - name: lb4b-nst-job-%DFM%
+      - name: lb4b-nst-job-%NAM%
         image: gcr.io/prismatic-rock-334703/lb4b_nst_job:0.0.1
         resources: 
           requests: 
